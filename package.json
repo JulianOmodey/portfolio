@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json,md}\""
+    "format": "prettier --write \"app/**/*.{js,jsx,ts,tsx,css,scss,json,md}\"",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "14.2.14",

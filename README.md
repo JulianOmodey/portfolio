@@ -119,26 +119,6 @@ To start the project in production mode, run:
 yarn start
 ```
 
-### Folder Structure
-Here’s an overview of the folder structure for the project:
-
-```
-├── src/
-│   ├── pages/               # Pages for routing
-│   │   ├── index.tsx        # Home page
-│   │   ├── _app.tsx         # Custom App component
-│   │   └── api/             # API routes (for contact form)
-│   ├── components/          # Reusable components
-│   │   └── ContactForm.tsx  # Contact form component
-│   ├── styles/              # Global CSS and module styles
-│   │   └── globals.css      # Global styles for the app
-│   └── fonts/               # Custom fonts (GeistSans, GeistMono)
-├── public/                  # Static assets (images, fonts, etc.)
-├── .env.local               # Environment variables
-├── README.md                # Project documentation
-└── package.json             # Project configuration and dependencies
-```
-
 ### Deployment
 The project is deployed using Vercel. Follow these steps to deploy:
 
