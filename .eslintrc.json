@@ -1,3 +1,51 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "next/core-web-vitals",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "import"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",  // Next.js automatically handles React in scope
+    "@typescript-eslint/no-unused-vars": "warn", // Warns about unused variables
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],  // Ensures JSX is used in TSX files
+    "semi": ["error", "never"],  // Enforces semicolons
+    "quotes": ["error", "single"],  // Enforces single quotes
+    "indent": ["error", 2],  // 2 spaces for indentation
+    "import/no-unresolved": "error",  // Throws an error for unresolved imports
+    "import/named": "error",  // Ensures named imports correspond to exported names
+    "import/default": "error",  // Ensures default import matches the default export
+    "import/namespace": "error",  // Ensures namespace imports are correct
+    "import/no-extraneous-dependencies": "error"  // Prevents importing packages not listed in package.json
+  },
+  "settings": {
+    "react": {
+      "version": "detect"  // Automatically detects the React version
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".css"]
+      }
+    }
+  }
 }
