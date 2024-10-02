@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio
+
+This is my personal portfolio website built with **Next.js** and **TypeScript**. It showcases my work, skills, and contact information, and it features custom fonts, responsive design, and a contact form for visitors to reach out to me.
+
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Folder Structure](#folder-structure)
+- [License](#license)
+
+## Features
+
+- **Custom Fonts**: Imported and configured local fonts (`GeistSans` and `GeistMono`).
+- **Responsive Design**: Works across different devices (mobile, tablet, desktop).
+- **SEO Optimization**: Custom metadata for better search engine optimization.
+- **Fast Performance**: Built with Next.js's server-side rendering (SSR) and static site generation (SSG).
+- **Contact Form**: Visitors can reach me through a contact form that sends emails directly to my inbox.
+- **Global Styling**: Using global CSS and styled components for a consistent look across the site.
+
+## Technologies Used
+
+- **Next.js**: A React-based framework for server-side rendering and static site generation.
+- **TypeScript**: Typed JavaScript for building more robust applications.
+- **Tailwind CSS** (Optional): A utility-first CSS framework for styling (or use your preferred method).
+- **Nodemailer**: For handling the contact form email functionality.
+- **Vercel** (Deployment): The portfolio is deployed on Vercel, the platform made by the creators of Next.js.
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy of this project up and running, follow these steps:
 
+### Prerequisites
+
+Make sure you have the following installed on your system:
+
+- **Node.js**: [Download and install Node.js](https://nodejs.org/en/) (LTS version recommended).
+- **Yarn**: Install [Yarn](https://yarnpkg.com/) globally by running:
+  ```bash
+  npm install --global yarn
+# My Portfolio
+
+This is my personal portfolio website built with **Next.js** and **TypeScript**. It showcases my work, skills, and contact information, and it features custom fonts, responsive design, and a contact form for visitors to reach out to me.
+
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Folder Structure](#folder-structure)
+- [License](#license)
+
+## Features
+
+- **Custom Fonts**: Imported and configured local fonts (`GeistSans` and `GeistMono`).
+- **Responsive Design**: Works across different devices (mobile, tablet, desktop).
+- **SEO Optimization**: Custom metadata for better search engine optimization.
+- **Fast Performance**: Built with Next.js's server-side rendering (SSR) and static site generation (SSG).
+- **Contact Form**: Visitors can reach me through a contact form that sends emails directly to my inbox.
+- **Global Styling**: Using global CSS and styled components for a consistent look across the site.
+
+## Technologies Used
+
+- **Next.js**: A React-based framework for server-side rendering and static site generation.
+- **TypeScript**: Typed JavaScript for building more robust applications.
+- **Tailwind CSS** (Optional): A utility-first CSS framework for styling (or use your preferred method).
+- **Nodemailer**: For handling the contact form email functionality.
+- **Vercel** (Deployment): The portfolio is deployed on Vercel, the platform made by the creators of Next.js.
+
+## Getting Started
+
+To get a local copy of this project up and running, follow these steps:
+
+### Prerequisites
+
+Make sure you have the following installed on your system:
+
+- **Node.js**: [Download and install Node.js](https://nodejs.org/en/) (LTS version recommended).
+- **Yarn**: Install [Yarn](https://yarnpkg.com/) globally by running:
+  ```bash
+  npm install --global yarn
+  ```
+
+### Installation
+
+Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/JulianOmodey/portfolio.git
+cd portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies:
+```bash
+yarn install
+```
 
-You can start editing the page by modifying `app/index.tsx`. The page auto-updates as you edit the file.
+[//]: # (Set up environment variables:)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[//]: # (```bash)
 
-## Learn More
+### Running the project
 
-To learn more about Next.js, take a look at the following resources:
+To run the project locally in development mode, use the following command:
+```bash
+yarn dev
+```
+This will start the development server at `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To build the project for production, run:
+```bash
+yarn build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To start the project in production mode, run:
+```bash
+yarn start
+```
 
-## Deploy on Vercel
+### Folder Structure
+Here’s an overview of the folder structure for the project:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+├── src/
+│   ├── pages/               # Pages for routing
+│   │   ├── index.tsx        # Home page
+│   │   ├── _app.tsx         # Custom App component
+│   │   └── api/             # API routes (for contact form)
+│   ├── components/          # Reusable components
+│   │   └── ContactForm.tsx  # Contact form component
+│   ├── styles/              # Global CSS and module styles
+│   │   └── globals.css      # Global styles for the app
+│   └── fonts/               # Custom fonts (GeistSans, GeistMono)
+├── public/                  # Static assets (images, fonts, etc.)
+├── .env.local               # Environment variables
+├── README.md                # Project documentation
+└── package.json             # Project configuration and dependencies
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Deployment
+The project is deployed using Vercel. Follow these steps to deploy:
+
+1. Push your changes to a [GitHub](https://github.com/) repository.
+2. Go to [Vercel](https://vercel.com/) and connect your [GitHub](https://github.com) account.
+3. Import your repository into [Vercel](https://vercel.com/) and deploy the app.
