@@ -1,5 +1,5 @@
 import { motion, Transition, Easing } from 'motion/react'
-import { useEffect, useRef, useState, useMemo } from 'react'
+import { useMemo } from 'react'
 
 type BlurTextProps = {
   text?: string
@@ -47,23 +47,6 @@ const BlurText: React.FC<BlurTextProps> = ({
   stepDuration = 0.35,
 }) => {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('')
-  const [inView, setInView] = useState(false)
-  const ref = useRef<HTMLParagraphElement>(null)
-
-  useEffect(() => {
-    if (!ref.current) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true)
-          observer.unobserve(ref.current as Element)
-        }
-      },
-      { threshold, rootMargin }
-    )
-    observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [threshold, rootMargin])
 
   const defaultFrom = useMemo(
     () =>
@@ -95,7 +78,7 @@ const BlurText: React.FC<BlurTextProps> = ({
   )
 
   return (
-    <p ref={ref} className={`blur-text ${className} flex flex-wrap`}>
+    <p className={`blur-text ${className} flex flex-wrap`}>
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots)
 
@@ -110,7 +93,7 @@ const BlurText: React.FC<BlurTextProps> = ({
           <motion.span
             key={index}
             initial={fromSnapshot}
-            animate={inView ? animateKeyframes : fromSnapshot}
+            animate={animateKeyframes}
             transition={spanTransition}
             onAnimationComplete={
               index === elements.length - 1 ? onAnimationComplete : undefined

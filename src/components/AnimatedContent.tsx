@@ -104,6 +104,11 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       onEnter: () => tl.play(),
     })
 
+    const triggerLine = (startPct / 100) * window.innerHeight
+    if (el.getBoundingClientRect().top <= triggerLine) {
+      tl.play()
+    }
+
     return () => {
       st.kill()
       tl.kill()
@@ -128,7 +133,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
   ])
 
   return (
-    <div ref={ref} className={`invisible ${className}`} {...props}>
+    <div ref={ref} className={className} {...props}>
       {children}
     </div>
   )
