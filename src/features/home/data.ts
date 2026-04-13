@@ -19,40 +19,56 @@ export const sectionOrder: SectionId[] = navigationLinks.map((link) => link.id)
 
 export const projects: ProjectItem[] = [
   {
-    name: 'Realtime Collaboration Platform',
+    name: 'Headless Commerce Platform',
     description:
-      'Multiplayer editing with optimistic UI, conflict resolution, and web sockets at scale.',
-    stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
+      'Built custom storefront experiences with React, GraphQL, Magento, and Sanity for content-rich e-commerce websites.',
+    stack: ['React', 'TypeScript', 'GraphQL', 'Magento', 'Sanity'],
   },
   {
-    name: 'Developer Analytics Dashboard',
+    name: 'Frontend System Modernization',
     description:
-      'Fast, visual product intelligence with streaming charts, cohort tooling, and role-based access.',
-    stack: ['React', 'Node.js', 'ClickHouse', 'Tailwind CSS'],
+      'Migrated legacy UI patterns to a scalable Tailwind-based architecture, improving consistency and speeding up development across a large codebase.',
+    stack: ['React', 'Tailwind CSS', 'Nx', 'TypeScript', 'Design System'],
   },
   {
-    name: 'AI Workflow Automations',
+    name: 'CMS-Driven Interactive Experiences',
     description:
-      'An internal automation suite that removes repetitive tasks through event-driven pipelines.',
-    stack: ['Python', 'Queue Workers', 'OpenAI API', 'Docker'],
+      'Developed reusable content blocks, advanced navigation, and dynamic UI components for marketing and product teams to ship faster.',
+    stack: ['React', 'Sanity', 'RxJS', 'GraphQL', 'Component Architecture'],
   },
 ]
 
 export const skills = [
+  'Full-Stack Development',
+  'HTML',
+  'CSS',
   'TypeScript',
+  'RXJS',
   'JavaScript',
+  'Node.js',
+  'styled-components',
+  'Tailwind CSS',
+  'Backbone.js',
   'React',
   'NextJS',
   'Gatsby',
   'GraphQL',
   'SQL',
+  'NetSuite',
+  'SuiteCommerce',
+  'Auth0',
+  'AWS',
+  'Magento',
+  'Object Oriented Programming',
+  'Java',
+  'C#',
   'UX/UI',
   'Git',
   'CI/CD',
   'System Design',
-  'Full-Stack Development',
-  'Object Oriented Programming',
+  'CMS Integrations',
   'Functional Programming',
+  'Reactive Programming',
   'Agile Methodologies',
 ]
 
@@ -68,7 +84,7 @@ export const careerTimeline: CareerTimelineItem[] = [
     organization: 'ORT University | Uruguay',
     link: 'https://www.ort.edu.uy/',
     summary:
-      'Completed formal software engineering training with a strong focus on algorithms, databases, architecture fundamentals, and product implementation.',
+      'Gained formal software engineering training with a strong focus on algorithms, databases, architecture fundamentals and design patterns, and object oriented programming.',
   },
   {
     period: 'Nov 2021 - Present',
@@ -76,7 +92,7 @@ export const careerTimeline: CareerTimelineItem[] = [
     organization: 'AnagramDev',
     link: 'https://anagram.dev/',
     summary:
-      'Designing and delivering production web applications end to end, from frontend architecture and UI quality to backend integrations and deployment workflows.',
+      'Designing and delivering production web applications for eCommerce, from frontend architecture and UI quality to backend and services integrations.',
   },
 ]
 

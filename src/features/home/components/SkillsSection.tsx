@@ -7,7 +7,11 @@ interface SkillsSectionProps {
   dotActiveColor: string
 }
 
-export default function SkillsSection({ skills, dotBaseColor, dotActiveColor }: SkillsSectionProps) {
+export default function SkillsSection({
+  skills,
+  dotBaseColor,
+  dotActiveColor,
+}: SkillsSectionProps) {
   return (
     <section className="relative overflow-hidden px-4 py-[clamp(3.25rem,10vw,5.2rem)] md:px-[1.2rem] md:py-[clamp(4rem,10vw,8rem)]">
       <div
@@ -33,7 +37,7 @@ export default function SkillsSection({ skills, dotBaseColor, dotActiveColor }: 
         </AnimatedContent>
 
         <div
-          className="mt-8 overflow-hidden border-y border-[color:var(--line)] bg-[color:var(--bg-elev)] py-[0.9rem] md:py-4"
+          className="mt-8 overflow-hidden border-y border-[color:var(--line)] bg-[color:var(--bg-elev)] py-[0.9rem] [--skills-edge-fade:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)] [mask-image:var(--skills-edge-fade)] [-webkit-mask-image:var(--skills-edge-fade)] md:py-4"
           role="presentation"
         >
           <div

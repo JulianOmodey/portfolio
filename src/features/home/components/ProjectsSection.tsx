@@ -19,7 +19,8 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
         </AnimatedContent>
         <AnimatedContent distance={54} delay={0.12}>
           <p className="m-0 max-w-[60ch] text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.72] text-[color:var(--text-soft)]">
-            Scroll down to reveal each project card with layered motion, inspired by Apple-like product pages.
+            A selection of production-grade frontend and full-stack work across
+            e-commerce, CMS-driven platforms, and scalable UI architecture.
           </p>
         </AnimatedContent>
       </div>
@@ -37,8 +38,12 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
               <p className="mb-[0.6rem] mt-0 text-[0.82rem] tracking-[0.08em] text-[color:var(--project-index)]">
                 0{index + 1}
               </p>
-              <h3 className="m-0 text-[clamp(1.25rem,2vw,1.8rem)]">{project.name}</h3>
-              <p className="mb-0 mt-[0.85rem] text-[color:var(--text-soft)]">{project.description}</p>
+              <h3 className="m-0 text-[clamp(1.25rem,2vw,1.8rem)]">
+                {project.name}
+              </h3>
+              <p className="mb-0 mt-[0.85rem] text-[color:var(--text-soft)]">
+                {project.description}
+              </p>
               <div className="mt-[0.95rem] flex flex-wrap gap-[0.45rem]">
                 {project.stack.map((tech) => (
                   <span
