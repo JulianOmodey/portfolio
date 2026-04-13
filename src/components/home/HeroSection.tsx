@@ -5,17 +5,17 @@ import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'motion/react'
 import AnimatedContent from '@/components/AnimatedContent'
 import Particles from '@/components/Particles'
-import { profile } from '@/features/home/data'
+import { profile } from '@/data/data'
 
 interface HeroSectionProps {
   heroRef: RefObject<HTMLElement>
   particleColors: string[]
 }
 
-export default function HeroSection({
+const HeroSection = ({
   heroRef,
   particleColors,
-}: HeroSectionProps) {
+}: HeroSectionProps): JSX.Element => {
   const { scrollYProgress } = useScroll()
   const heroY = useTransform(scrollYProgress, [0, 0.25], [0, -160])
   const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.94])
@@ -89,3 +89,5 @@ export default function HeroSection({
     </section>
   )
 }
+
+export default HeroSection

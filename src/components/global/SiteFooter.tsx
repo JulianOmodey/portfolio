@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { FiBriefcase, FiFileText, FiGithub, FiHome, FiLinkedin, FiMail, FiUser } from 'react-icons/fi'
 import type { IconType } from 'react-icons'
-import type { FooterNavigationLink, SocialLink } from '@/features/home/types'
+import type { FooterNavigationLink, SocialLink } from '@/data/types'
 
 interface SiteFooterProps {
   name: string
@@ -10,7 +10,12 @@ interface SiteFooterProps {
   socialLinks: SocialLink[]
 }
 
-export default function SiteFooter({ name, summary, navigationLinks, socialLinks }: SiteFooterProps) {
+const SiteFooter = ({
+  name,
+  summary,
+  navigationLinks,
+  socialLinks,
+}: SiteFooterProps): JSX.Element => {
   const footerNavigationIcons: Record<FooterNavigationLink['label'], IconType> = {
     Home: FiHome,
     About: FiUser,
@@ -87,3 +92,5 @@ export default function SiteFooter({ name, summary, navigationLinks, socialLinks
     </footer>
   )
 }
+
+export default SiteFooter

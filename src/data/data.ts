@@ -6,7 +6,7 @@ import type {
   SectionId,
   SocialLink,
   SocialLinkLabel,
-} from '@/features/home/types'
+} from '@/data/types'
 
 export const navigationLinks: NavigationLink[] = [
   { id: 'home', label: 'Home' },

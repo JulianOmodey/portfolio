@@ -1,8 +1,8 @@
 import AnimatedContent from '@/components/AnimatedContent'
 import { FiLinkedin, FiMail } from 'react-icons/fi'
-import { getSocialLinkHref } from '@/features/home/data'
+import { getSocialLinkHref } from '@/data/data'
 
-export default function ContactSection() {
+const ContactSection = (): JSX.Element => {
   const emailHref = getSocialLinkHref('Email')
   const linkedInHref = getSocialLinkHref('LinkedIn')
 
@@ -45,3 +45,5 @@ export default function ContactSection() {
     </section>
   )
 }
+
+export default ContactSection

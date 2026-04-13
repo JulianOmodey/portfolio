@@ -1,6 +1,6 @@
 import type { RefObject } from 'react'
 import { useEffect, useState } from 'react'
-import type { SectionId } from '@/features/home/types'
+import type { SectionId } from '@/data/types'
 
 interface SectionNavigationState {
   showHeader: boolean
