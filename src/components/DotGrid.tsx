@@ -5,13 +5,16 @@ import { InertiaPlugin } from 'gsap/InertiaPlugin'
 
 gsap.registerPlugin(InertiaPlugin)
 
-const throttle = (func: (...args: any[]) => void, limit: number) => {
+const throttle = <TArgs extends unknown[]>(
+  func: (...args: TArgs) => void,
+  limit: number
+) => {
   let lastCall = 0
-  return function (this: any, ...args: any[]) {
+  return (...args: TArgs) => {
     const now = performance.now()
     if (now - lastCall >= limit) {
       lastCall = now
-      func.apply(this, args)
+      func(...args)
     }
   }
 }
@@ -178,11 +181,13 @@ const DotGrid: React.FC<DotGridProps> = ({
   useEffect(() => {
     buildGrid()
     let ro: ResizeObserver | null = null
-    if ('ResizeObserver' in window) {
+    const hasResizeObserver = typeof ResizeObserver !== 'undefined'
+
+    if (hasResizeObserver) {
       ro = new ResizeObserver(buildGrid)
       wrapperRef.current && ro.observe(wrapperRef.current)
     } else {
-      ;(window as Window).addEventListener('resize', buildGrid)
+      window.addEventListener('resize', buildGrid)
     }
     return () => {
       if (ro) ro.disconnect()
@@ -213,7 +218,9 @@ const DotGrid: React.FC<DotGridProps> = ({
       pr.vy = vy
       pr.speed = speed
 
-      const rect = canvasRef.current!.getBoundingClientRect()
+      const canvasElement = canvasRef.current
+      if (!canvasElement) return
+      const rect = canvasElement.getBoundingClientRect()
       pr.x = e.clientX - rect.left
       pr.y = e.clientY - rect.top
 
@@ -241,7 +248,9 @@ const DotGrid: React.FC<DotGridProps> = ({
     }
 
     const onClick = (e: MouseEvent) => {
-      const rect = canvasRef.current!.getBoundingClientRect()
+      const canvasElement = canvasRef.current
+      if (!canvasElement) return
+      const rect = canvasElement.getBoundingClientRect()
       const cx = e.clientX - rect.left
       const cy = e.clientY - rect.top
       for (const dot of dotsRef.current) {

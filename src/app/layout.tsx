@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import '../styles/globals.css'
+import React from 'react'
 
 const geistSans = localFont({
   src: '../../public/fonts/GeistVF.woff',
@@ -19,6 +20,27 @@ export const metadata: Metadata = {
     'Personal software developer portfolio featuring animated, scroll-driven storytelling and project highlights.',
 }
 
+const themeBootScript = `
+(() => {
+  const storageKey = 'portfolio-theme';
+  const aliases = {
+    mono: 'mono-dark',
+    dark: 'mono-dark',
+    light: 'mono-light',
+    crimson: 'crimson-gold',
+  };
+  const validThemes = ['ocean', 'mono-dark', 'mono-light', 'crimson-gold'];
+
+  const stored = window.localStorage.getItem(storageKey);
+  const normalized = stored && Object.prototype.hasOwnProperty.call(aliases, stored)
+    ? aliases[stored]
+    : stored;
+  const nextTheme = normalized && validThemes.includes(normalized) ? normalized : 'ocean';
+
+  document.documentElement.dataset.theme = nextTheme;
+})();
+`
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,6 +48,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+        <title>Julián Omodey | Portfolio</title>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

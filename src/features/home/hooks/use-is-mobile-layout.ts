@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-const MOBILE_LAYOUT_QUERY = '(max-width: 900px)'
+const MOBILE_LAYOUT_QUERY = '(max-width: 767px)'
 
 export function useIsMobileLayout(query: string = MOBILE_LAYOUT_QUERY): boolean {
   const [isMobile, setIsMobile] = useState(false)
@@ -21,4 +21,3 @@ export function useIsMobileLayout(query: string = MOBILE_LAYOUT_QUERY): boolean 
 
   return isMobile
 }
-

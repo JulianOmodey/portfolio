@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import SiteFooter from '@/components/site/SiteFooter'
+import ThemeSwitcher from '@/components/theme/ThemeSwitcher'
 import AboutSection from '@/features/home/components/AboutSection'
 import ContactSection from '@/features/home/components/ContactSection'
 import FloatingHeader from '@/features/home/components/FloatingHeader'
@@ -11,23 +12,25 @@ import ScrollProgress from '@/features/home/components/ScrollProgress'
 import SkillsSection from '@/features/home/components/SkillsSection'
 import { footerLinks, navigationLinks, profile, projects, sectionOrder, skills, socialLinks } from '@/features/home/data'
 import { useSectionNavigation } from '@/features/home/hooks/use-section-navigation'
+import { themeEffectColors, useTheme } from '@/features/home/hooks/use-theme'
 
 interface BaseHomeLayoutProps {
-  layoutClassName: string
   showScrollProgress?: boolean
   compactHeader?: boolean
 }
 
 export default function BaseHomeLayout({
-  layoutClassName,
   showScrollProgress = true,
   compactHeader = false,
 }: BaseHomeLayoutProps) {
   const heroRef = useRef<HTMLElement>(null)
   const { showHeader, activeSection } = useSectionNavigation(heroRef, sectionOrder)
+  const { theme, setTheme } = useTheme()
+  const effectColors = themeEffectColors[theme]
 
   return (
-    <main className={`portfolio-root ${layoutClassName}`}>
+    <main className="relative overflow-x-clip">
+      <ThemeSwitcher compact={compactHeader} theme={theme} onThemeChange={setTheme} />
       {showScrollProgress ? <ScrollProgress /> : null}
       <FloatingHeader
         showHeader={showHeader}
@@ -35,9 +38,13 @@ export default function BaseHomeLayout({
         links={navigationLinks}
         compact={compactHeader}
       />
-      <HeroSection heroRef={heroRef} />
+      <HeroSection heroRef={heroRef} particleColors={effectColors.particles} />
       <AboutSection />
-      <SkillsSection skills={skills} />
+      <SkillsSection
+        skills={skills}
+        dotBaseColor={effectColors.dotBase}
+        dotActiveColor={effectColors.dotActive}
+      />
       <ProjectsSection projects={projects} />
       <ContactSection />
       <SiteFooter

@@ -11,7 +11,24 @@ export interface ProjectItem {
   stack: string[]
 }
 
-export interface FooterLink {
+export interface CareerTimelineItem {
+  period: string
+  role: string
+  organization: string
+  link?: string
+  summary: string
+}
+
+export type FooterNavigationLabel = 'Home' | 'About' | 'Projects' | 'Contact'
+
+export interface FooterNavigationLink {
+  href: `#${SectionId}`
+  label: FooterNavigationLabel
+}
+
+export type SocialLinkLabel = 'Email' | 'LinkedIn' | 'GitHub' | 'CV'
+
+export interface SocialLink {
   href: string
-  label: string
+  label: SocialLinkLabel
 }

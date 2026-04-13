@@ -1,4 +1,11 @@
-import type { FooterLink, NavigationLink, ProjectItem, SectionId } from '@/features/home/types'
+import type {
+  CareerTimelineItem,
+  FooterNavigationLink,
+  NavigationLink,
+  ProjectItem,
+  SectionId,
+  SocialLink,
+} from '@/features/home/types'
 
 export const navigationLinks: NavigationLink[] = [
   { id: 'home', label: 'Home' },
@@ -7,7 +14,7 @@ export const navigationLinks: NavigationLink[] = [
   { id: 'contact', label: 'Contact' },
 ]
 
-export const sectionOrder: SectionId[] = navigationLinks.map(link => link.id)
+export const sectionOrder: SectionId[] = navigationLinks.map((link) => link.id)
 
 export const projects: ProjectItem[] = [
   {
@@ -32,15 +39,20 @@ export const projects: ProjectItem[] = [
 
 export const skills = [
   'TypeScript',
+  'JavaScript',
   'React',
-  'Next.js',
-  'Node.js',
+  'NextJS',
+  'Gatsby',
   'GraphQL',
-  'PostgreSQL',
-  'Redis',
-  'Docker',
+  'SQL',
+  'UX/UI',
+  'Git',
   'CI/CD',
   'System Design',
+  'Full-Stack Development',
+  'Object Oriented Programming',
+  'Functional Programming',
+  'Agile Methodologies',
 ]
 
 export const aboutHighlights = [
@@ -48,14 +60,33 @@ export const aboutHighlights = [
   'My sweet spot is end-to-end product development where thoughtful UX, clean code, and measurable business impact align.',
 ]
 
-export const footerLinks: FooterLink[] = [
+export const careerTimeline: CareerTimelineItem[] = [
+  {
+    period: '2019 - 2022',
+    role: 'Programmer Analyst',
+    organization: 'ORT University | Uruguay',
+    link: 'https://www.ort.edu.uy/',
+    summary:
+      'Completed formal software engineering training with a strong focus on algorithms, databases, architecture fundamentals, and product implementation.',
+  },
+  {
+    period: 'Nov 2021 - Present',
+    role: 'Full-Stack Web Developer',
+    organization: 'AnagramDev',
+    link: 'https://anagram.dev/',
+    summary:
+      'Designing and delivering production web applications end to end, from frontend architecture and UI quality to backend integrations and deployment workflows.',
+  },
+]
+
+export const footerLinks: FooterNavigationLink[] = [
   { href: '#home', label: 'Home' },
   { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ]
 
-export const socialLinks: FooterLink[] = [
+export const socialLinks: SocialLink[] = [
   { href: 'mailto:julian@example.com', label: 'Email' },
   { href: 'https://www.linkedin.com', label: 'LinkedIn' },
   { href: 'https://github.com', label: 'GitHub' },
