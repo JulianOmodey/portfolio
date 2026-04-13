@@ -29,7 +29,7 @@
   --project-index: #99c9e8;
   --accent-start: #00b1ff;
   --accent-end: #00d2c2;
-  --accent-text: #001320;
+  --accent-text: #ffffff;
   --section-glow: rgba(0, 163, 255, 0.17);
   --footer-orb: rgba(0, 160, 255, 0.12);
   --footer-bg: rgba(4, 12, 22, 0.85);
@@ -158,7 +158,7 @@ html[data-theme='crimson-gold'] {
   --project-index: #efbe87;
   --accent-start: #9b112d;
   --accent-end: #d8a43b;
-  --accent-text: #1f0f03;
+  --accent-text: #ffffff;
   --section-glow: rgba(173, 29, 63, 0.2);
   --footer-orb: rgba(198, 141, 29, 0.18);
   --footer-bg: rgba(18, 8, 12, 0.92);

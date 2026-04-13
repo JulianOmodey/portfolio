@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'motion/react'
 import AnimatedContent from '@/components/AnimatedContent'
 import Particles from '@/components/Particles'
+import { profile } from '@/features/home/data'
 
 interface HeroSectionProps {
   heroRef: RefObject<HTMLElement>
@@ -56,7 +57,7 @@ export default function HeroSection({
 
         <AnimatedContent distance={56} direction="vertical" delay={0.12}>
           <h1 className="mt-5 text-left text-[clamp(2.25rem,11vw,3.5rem)] font-bold leading-[0.95] tracking-[-0.03em] text-balance md:text-center md:text-[clamp(2.5rem,7vw,6.5rem)]">
-            Julián Omodey
+            {profile.name}
           </h1>
         </AnimatedContent>
 

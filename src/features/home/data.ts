@@ -5,6 +5,7 @@ import type {
   ProjectItem,
   SectionId,
   SocialLink,
+  SocialLinkLabel,
 } from '@/features/home/types'
 
 export const navigationLinks: NavigationLink[] = [
@@ -86,15 +87,48 @@ export const footerLinks: FooterNavigationLink[] = [
   { href: '#contact', label: 'Contact' },
 ]
 
-export const socialLinks: SocialLink[] = [
-  { href: 'mailto:julian@example.com', label: 'Email' },
-  { href: 'https://www.linkedin.com', label: 'LinkedIn' },
-  { href: 'https://github.com', label: 'GitHub' },
+const normalizeSocialHref = (link: SocialLink): string => {
+  if (link.label !== 'Email') {
+    return link.href
+  }
+
+  if (link.href.startsWith('mailto:')) {
+    return link.href
+  }
+
+  if (link.href.includes('@') && !link.href.startsWith('http')) {
+    return `mailto:${link.href}`
+  }
+
+  return link.href
+}
+
+const baseSocialLinks: SocialLink[] = [
+  { href: 'mailto:julianomodey@gmail.com', label: 'Email' },
+  {
+    href: 'https://www.linkedin.com/in/julián-omodey-076a35174',
+    label: 'LinkedIn',
+  },
+  { href: 'https://github.com/JulianOmodey', label: 'GitHub' },
   { href: '/files/JulianOmodeyCV.pdf', label: 'CV' },
 ]
 
+export const socialLinks: SocialLink[] = baseSocialLinks.map((link) => ({
+  ...link,
+  href: normalizeSocialHref(link),
+}))
+
+export const getSocialLinkHref = (label: SocialLinkLabel): string => {
+  const link = socialLinks.find((item) => item.label === label)
+  if (!link) {
+    throw new Error(`Missing social link for label: ${label}`)
+  }
+
+  return link.href
+}
+
 export const profile = {
-  name: 'Julian Omodey',
+  name: 'Julián Omodey',
   subtitle:
     'Full-stack software developer focused on high-performance web products and polished user experiences.',
 }

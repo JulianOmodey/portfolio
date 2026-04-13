@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { FiExternalLink } from 'react-icons/fi'
 import AnimatedContent from '@/components/AnimatedContent'
 import { aboutHighlights, careerTimeline } from '@/features/home/data'
 
@@ -14,7 +15,7 @@ export default function AboutSection() {
           <div className="overflow-hidden rounded-[1.4rem] border border-[color:var(--line)] bg-[color:var(--bg-elev)] shadow-app backdrop-blur-[10px]">
             <Image
               src="/images/portrait-2.JPG"
-              alt="Portrait of Julian Omodey"
+              alt="Julian's portrait"
               width={520}
               height={680}
               className="block h-auto w-full object-cover"
@@ -31,7 +32,11 @@ export default function AboutSection() {
           </AnimatedContent>
 
           {aboutHighlights.map((paragraph, index) => (
-            <AnimatedContent key={paragraph} distance={52 - index * 4} delay={0.15 + index * 0.1}>
+            <AnimatedContent
+              key={paragraph}
+              distance={52 - index * 4}
+              delay={0.15 + index * 0.1}
+            >
               <p className="m-0 text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.72] text-[color:var(--text-soft)]">
                 {paragraph}
               </p>
@@ -47,7 +52,10 @@ export default function AboutSection() {
 
                 <ol className="relative m-0 list-none space-y-6 border-l border-[color:var(--line-strong)] pl-6">
                   {careerTimeline.map((entry) => (
-                    <li key={`${entry.organization}-${entry.period}`} className="relative">
+                    <li
+                      key={`${entry.organization}-${entry.period}`}
+                      className="relative"
+                    >
                       <span
                         aria-hidden
                         className="absolute -left-[1.86rem] top-1.5 h-3 w-3 rounded-full border border-[color:var(--line-strong)] bg-[color:var(--bg-main)]"
@@ -63,9 +71,13 @@ export default function AboutSection() {
                           href={entry.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-1 inline-block text-sm text-[color:var(--text-main)] underline-offset-4 transition-colors duration-200 ease-out hover:text-[color:var(--text-strong)] hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--line-strong)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg-elev)]"
+                          className="group mt-1 inline-flex items-center gap-1.5 text-sm text-[color:var(--text-main)] underline-offset-4 transition-colors duration-200 ease-out hover:text-[color:var(--text-strong)] hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--line-strong)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg-elev)]"
                         >
-                          {entry.organization}
+                          <span>{entry.organization}</span>
+                          <FiExternalLink
+                            aria-hidden
+                            className="h-[0.82rem] w-[0.82rem] shrink-0 translate-y-[-0.5px] transition-transform duration-200 ease-out group-hover:translate-x-[1px] group-hover:translate-y-[-1.5px]"
+                          />
                         </a>
                       ) : (
                         <p className="m-0 mt-1 text-sm text-[color:var(--text-main)]">

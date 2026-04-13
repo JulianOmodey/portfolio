@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import '../styles/globals.css'
 import React from 'react'
+import { profile } from '@/features/home/data'
 
 const geistSans = localFont({
   src: '../../public/fonts/GeistVF.woff',
@@ -50,7 +51,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
-        <title>Julián Omodey | Portfolio</title>
+        <title>{profile.name} | Portfolio</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
