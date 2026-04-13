@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import type { NavigationLink, SectionId } from '@/features/home/types'
+import type { NavigationLink, SectionId } from '@/data/types'
 
 interface FloatingHeaderProps {
   showHeader: boolean
@@ -13,12 +13,12 @@ interface FloatingHeaderProps {
 const joinClasses = (...classes: Array<string | false | null | undefined>): string =>
   classes.filter(Boolean).join(' ')
 
-export default function FloatingHeader({
+const FloatingHeader = ({
   showHeader,
   activeSection,
   links,
   compact = false,
-}: FloatingHeaderProps) {
+}: FloatingHeaderProps): JSX.Element => {
   const headerClassName = joinClasses(
     'fixed left-1/2 top-0 z-[120] -translate-x-1/2',
     'transition-all duration-[360ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
@@ -58,3 +58,5 @@ export default function FloatingHeader({
     </header>
   )
 }
+
+export default FloatingHeader

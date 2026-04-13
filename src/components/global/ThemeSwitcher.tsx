@@ -9,8 +9,8 @@ import {
   FiSun,
 } from 'react-icons/fi'
 import type { IconType } from 'react-icons'
-import { themeOptions } from '@/features/home/hooks/use-theme'
-import type { ThemeName } from '@/features/home/hooks/use-theme'
+import { themeOptions } from '@/hooks/use-theme'
+import type { ThemeName } from '@/hooks/use-theme'
 
 interface ThemeSwitcherProps {
   compact?: boolean
@@ -21,11 +21,11 @@ interface ThemeSwitcherProps {
 const joinClasses = (...classes: Array<string | false | null | undefined>): string =>
   classes.filter(Boolean).join(' ')
 
-export default function ThemeSwitcher({
+const ThemeSwitcher = ({
   compact = false,
   theme,
   onThemeChange,
-}: ThemeSwitcherProps) {
+}: ThemeSwitcherProps): JSX.Element => {
   const containerRef = useRef<HTMLElement>(null)
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -186,3 +186,5 @@ export default function ThemeSwitcher({
     </aside>
   )
 }
+
+export default ThemeSwitcher

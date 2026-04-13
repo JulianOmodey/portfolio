@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import '../styles/globals.css'
 import React from 'react'
-import { profile } from '@/features/home/data'
+import { siteConfig } from '@/lib/site'
 
 const geistSans = localFont({
   src: '../../public/fonts/GeistVF.woff',
@@ -14,11 +14,71 @@ const geistMono = localFont({
   variable: '--font-geist-mono',
   weight: '100 900',
 })
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
 export const metadata: Metadata = {
-  title: 'Julian Omodey | Software Developer',
-  description:
-    'Personal software developer portfolio featuring animated, scroll-driven storytelling and project highlights.',
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: {
+    default: siteConfig.title,
+    template: '%s | Julián Omodey',
+  },
+  description: siteConfig.description,
+  keywords: [
+    'Julián Omodey',
+    'Full-Stack Developer',
+    'Frontend Developer',
+    'Backend Developer',
+    'React',
+    'JavaScript',
+    'Tailwind CSS',
+    'Software',
+    'TypeScript',
+    'Next.js',
+    'GraphQL',
+    'Software Developer Portfolio',
+  ],
+  authors: [{ name: 'Julián Omodey', url: siteConfig.siteUrl }],
+  creator: 'Julián Omodey',
+  publisher: 'Julián Omodey',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'Julián Omodey Portfolio',
+    locale: siteConfig.locale,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [
+      {
+        url: '/images/portrait-2.JPG',
+        width: 1200,
+        height: 630,
+        alt: 'Julián Omodey software developer portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: ['/images/portrait-2.JPG'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  verification: googleSiteVerification
+    ? { google: googleSiteVerification }
+    : undefined,
 }
 
 const themeBootScript = `
@@ -42,16 +102,15 @@ const themeBootScript = `
 })();
 `
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode
-}>) {
+}>): JSX.Element => {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
-        <title>{profile.name} | Portfolio</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -61,3 +120,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export default RootLayout

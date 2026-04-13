@@ -1,11 +1,11 @@
 import AnimatedContent from '@/components/AnimatedContent'
-import type { ProjectItem } from '@/features/home/types'
+import type { ProjectItem } from '@/data/types'
 
 interface ProjectsSectionProps {
   projects: ProjectItem[]
 }
 
-export default function ProjectsSection({ projects }: ProjectsSectionProps) {
+const ProjectsSection = ({ projects }: ProjectsSectionProps): JSX.Element => {
   return (
     <section
       id="projects"
@@ -61,3 +61,5 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
     </section>
   )
 }
+
+export default ProjectsSection

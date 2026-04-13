@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { FiExternalLink } from 'react-icons/fi'
 import AnimatedContent from '@/components/AnimatedContent'
-import { aboutHighlights, careerTimeline } from '@/features/home/data'
+import { aboutHighlights, careerTimeline } from '@/data/data'
 
-export default function AboutSection() {
+const AboutSection = (): JSX.Element => {
   return (
     <section
       id="about"
@@ -98,3 +98,5 @@ export default function AboutSection() {
     </section>
   )
 }
+
+export default AboutSection

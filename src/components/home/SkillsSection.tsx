@@ -7,11 +7,11 @@ interface SkillsSectionProps {
   dotActiveColor: string
 }
 
-export default function SkillsSection({
+const SkillsSection = ({
   skills,
   dotBaseColor,
   dotActiveColor,
-}: SkillsSectionProps) {
+}: SkillsSectionProps): JSX.Element => {
   return (
     <section className="relative overflow-hidden px-4 py-[clamp(3.25rem,10vw,5.2rem)] md:px-[1.2rem] md:py-[clamp(4rem,10vw,8rem)]">
       <div
@@ -65,3 +65,5 @@ export default function SkillsSection({
     </section>
   )
 }
+
+export default SkillsSection
